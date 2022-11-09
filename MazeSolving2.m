@@ -2,7 +2,8 @@ fspeed = -70;
 bspeed = 30;
 turnSpeed = 40;
 turnSpeed2 = -20;
-bgcount = 0;
+bcount = 0;
+gcount = 0;
 
 while 1
     brick.MoveMotor('AB', fspeed);
@@ -15,13 +16,19 @@ while 1
         pause (4);
         brick.MoveMotor('AB', fspeed);
         pause(0.5);
-    elseif (c == 3 || c== 2) && bgcount < 2
+    elseif c == 3 && bcount < 1
         disp("blue");
-        run ('KeyPressTest')
-        bgcount = bgcount + 1;
+        run ('KeyPressTest.m');
+        bcount = bcount + 1;
         brick.MoveMotor('AB', fspeed);
         pause(4);
-    elseif (c == 4 && bgcount >=2)
+    elseif c==2 && gcount < 1
+        disp("green")
+        run('KeyPressTest.m');
+        gcount = gcount + 1;
+        brick.MoveMotor('AB',fspeed);
+        pause(3);
+    elseif (c == 4 && bcount >= 1 && gcount >= 1)
         disp("charging station")
         brick.StopAllMotors();
     end
