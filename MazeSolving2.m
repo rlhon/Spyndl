@@ -22,7 +22,7 @@ while 1
         bcount = bcount + 1;
         brick.MoveMotor('AB', fspeed);
         pause(4);
-    elseif c==2 && gcount < 1
+    elseif c==2 && gcount < 1 && bcount >= 1
         disp("green")
         run('KeyPressTest.m');
         gcount = gcount + 1;
