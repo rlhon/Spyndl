@@ -15,13 +15,13 @@ while 1
         pause (4);
         brick.MoveMotor('AB', fspeed);
         pause(0.5);
-    elseif (c == 3 || c== 2) && bg < 2
+    elseif (c == 3 || c== 2) && bgcount < 2
         disp("blue");
         run ('KeyPressTest')
         bgcount = bgcount + 1;
         brick.MoveMotor('AB', fspeed);
         pause(4);
-    elseif (c == 4 && bg >=2)
+    elseif (c == 4 && bgcount >=2)
         disp("charging station")
         brick.StopAllMotors();
     end
